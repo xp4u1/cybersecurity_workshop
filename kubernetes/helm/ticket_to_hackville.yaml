@@ -1,0 +1,19 @@
+image: challenges/ticket_to_hackville
+port: 80
+domain_suffix: challenge.zeroday.pw
+resources:
+  requests:
+    cpu: "50m"
+    memory: "32Mi"
+  limits:
+    cpu: "100m"
+    memory: "128Mi"
+securityContext:
+  runAsNonRoot: false
+  runAsUser: 1000
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop: ["ALL"]
+  seccompProfile:
+    type: RuntimeDefault
